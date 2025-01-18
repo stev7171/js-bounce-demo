@@ -59,7 +59,7 @@ function update() {
             if (score === lastScore) {
                 score += 1;
             }
-            ballSpeed += 0.01; console.log(ballSpeed);
+            ballSpeed += 0.1; console.log(ballSpeed);
             dy = -ballSpeed;
         }
 
