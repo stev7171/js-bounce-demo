@@ -19,9 +19,11 @@ let padRight = false;
 let score = 0;
 let scrMargin = 10;
 
-let ballSpeed = 2;
+let ballSpeed = 1;
 
 let gameState = GS_PLAY;
+
+console.log(ballSpeed);
 
 function init() {
     x = 50;
@@ -36,7 +38,8 @@ function init() {
 
     score = 0;
 
-    ballSpeed = 2;
+    ballSpeed = 1;
+    console.log(ballSpeed);
 }
 
 function update() {
@@ -51,12 +54,12 @@ function update() {
             dx = ballSpeed;
         }
 
-        if (y >= canvas.height - circleSize - 10 && x > paddleX && x < paddleX + 50) {
+        if (y >= canvas.height - circleSize - 10 && x >= paddleX && x <= paddleX + 50) {
             y = canvas.height - circleSize - 10;
             if (score === lastScore) {
                 score += 1;
-                ballSpeed += 0.01;
             }
+            if (score % 2 === 0 && score !== 0) { ballSpeed += 0.5; console.log(ballSpeed); }
             dy = -ballSpeed;
         }
 
